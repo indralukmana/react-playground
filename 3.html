@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>React, Let's Play!</title>
+    <script src="react-library/react.development.js"></script>
+    <script src="react-library/react-dom.development.js"></script>
+
+    <script src="react-library/babel.min.js"></script>
+</head>
+<body>
+    <div id="react-container"></div>
+    <script type="text/babel">
+    
+        class Hello extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>Hello ES6 Class</h1>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Hello/>,
+            document.getElementById('react-container')
+        )    
+
+    </script>
+</body>
+</html>
