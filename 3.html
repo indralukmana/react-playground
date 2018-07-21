@@ -3,6 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <title>React, Let's Play!</title>
+
+    <style>
+        .helloStyle{
+            background: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
     <script src="react-library/react.development.js"></script>
     <script src="react-library/react-dom.development.js"></script>
 
@@ -15,7 +24,7 @@
         class Hello extends React.Component {
             render() {
                 return (
-                    <div>
+                    <div className="helloStyle">
                         <h1>Hello ES6 Class</h1>
                     </div>
                 )
