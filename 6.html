@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>React, Let's Play!</title>
+
+    <style>
+        .helloStyle{
+            background: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+    <script src="react-library/react.development.js"></script>
+    <script src="react-library/react-dom.development.js"></script>
+
+    <script src="react-library/babel.min.js"></script>
+</head>
+<body>
+    <div id="react-container"></div>
+    <script type="text/babel">
+    
+        class Checkbox extends React.Component {
+
+            constructor(props) {
+                super(props)
+                this.state = {
+                    checked: false
+                }
+                this.handleCheck = this.handleCheck.bind(this)
+            }
+
+            handleCheck(){
+                this.setState({
+                    checked: !this.state.checked
+                })
+            }
+
+            render() {
+
+                var message
+                if (this.state.checked){
+                    message = "checked"
+                } else {
+                    message = "not checked"
+                }
+
+                return (
+                    <div>
+                        <input  type="checkbox"
+                                onChange={this.handleCheck}
+                        />
+                        <p>The checkbox is {message}</p>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Checkbox/>,
+            document.getElementById('react-container')
+        )    
+
+    </script>
+</body>
+</html>
