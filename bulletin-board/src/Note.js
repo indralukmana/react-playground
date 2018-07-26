@@ -4,66 +4,64 @@ import FaTrash from 'react-icons/lib/fa/trash'
 import FaFloppyO from 'react-icons/lib/fa/floppy-o'
 
 class Note extends Component {
+  constructor (props) {
+    super(props)
 
-    constructor(props){
-        super(props)
-
-        this.state = {
-            editing: false
-        }
-
-        this.edit = this.edit.bind(this)
-        this.remove = this.remove.bind(this)
-        this.save = this.save.bind(this)
-
-        this.renderDisplay = this.renderDisplay.bind(this)
-        this.renderForm = this.renderForm.bind(this)
+    this.state = {
+      editing: false
     }
 
+    this.edit = this.edit.bind(this)
+    this.remove = this.remove.bind(this)
+    this.save = this.save.bind(this)
 
-    edit() {
-        this.setState({
-            editing: true
-        })
-    }
+    this.renderDisplay = this.renderDisplay.bind(this)
+    this.renderForm = this.renderForm.bind(this)
+  }
 
-    remove() {
-        alert('removing note')
-    }
+  edit () {
+    this.setState({
+      editing: true
+    })
+  }
 
-    save() {
-        alert('saving note')
-    }
+  remove () {
+    alert('removing note')
+  }
 
-    renderForm(){
-        return(
-            <div className="note">
-                <form>
-                    <textarea/>
-                    <button onClick={this.save}><FaFloppyO /></button>
-                </form>
-            </div>
-        )
-    }
+  save () {
+    alert(this._newText.value)
+  }
 
-    renderDisplay() {
-        return(
-            <div className="note">
+  renderForm () {
+    return (
+      <div className='note'>
+        <form>
+          <textarea ref={input => this._newText = input} />
+          <button onClick={this.save}><FaFloppyO /></button>
+        </form>
+      </div>
+    )
+  }
 
-                <p>Learn React</p>
+  renderDisplay () {
+    return (
+      <div className='note'>
 
-                <span>
-                    <button onClick={this.edit} id="edit"><FaPencil /></button>
-                    <button onClick={this.remove} id="remove"><FaTrash /></button>
-                </span>
+        <p>{this.props.children}</p>
 
-            </div>
-        )
-    }
+        <span>
+          <button onClick={this.edit} id='edit'><FaPencil /></button>
+          <button onClick={this.remove} id='remove'><FaTrash /></button>
+        </span>
 
-    render(){
-        return this.state.editing ? this.renderForm() : this.renderDisplay()
-    }
+      </div>
+    )
+  }
+
+  render () {
+    return this.state.editing ? this.renderForm() : this.renderDisplay()
+  }
 }
 
 export default Note
