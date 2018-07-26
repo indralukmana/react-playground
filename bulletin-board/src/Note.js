@@ -38,7 +38,7 @@ class Note extends Component {
       <div className='note'>
         <form>
           <textarea ref={input => this._newText = input} />
-          <button onClick={this.save}><FaFloppyO /></button>
+          <button id="save" onClick={this.save}><FaFloppyO /></button>
         </form>
       </div>
     )
